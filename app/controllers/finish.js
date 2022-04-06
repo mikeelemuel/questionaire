@@ -14,9 +14,4 @@ export default class FinishController extends Controller {
       this.router.transitionToRoute('question', lastQuestionId);
     }
   }
-
-  @action
-  backToQuestionnaires() {
-    this.router.transitionTo('questionnaires');
-  }
 }

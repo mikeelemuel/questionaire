@@ -4,7 +4,7 @@
 	<p>{{this.model.numberOfQuestions}} questions</p>
 
 	<div class="bottom-navigation">
-    <button type="button" {{on "click" this.backToQuestionnaires}}>Back</button>
+    <button type="button" {{on "click" this.questionnaireHelper.backToQuestionnaires}}>Back</button>
     <button type="button" {{on "click"  (fn this.startQuestionnaire this.model)}}>Start</button>
 	</div>
 

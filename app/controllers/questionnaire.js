@@ -15,9 +15,4 @@ export default class QuestionnaireController extends Controller {
       this.router.transitionTo('question', firstQuestionId);
     }
   }
-
-  @action
-  backToQuestionnaires() {
-    this.router.transitionTo('questionnaires');
-  }
 }
