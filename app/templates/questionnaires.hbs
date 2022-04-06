@@ -1,0 +1,9 @@
+<ul class="questionnaires">
+	{{#each this.model as |questionnaire|}}
+		<li class="questionnaires-item">
+      <LinkTo @route="questionnaire" @model={{questionnaire}} class="questionnaires-item__link">
+        {{questionnaire.name}}
+      </LinkTo>
+		</li>
+	{{/each}}
+</ul>
