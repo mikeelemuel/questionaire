@@ -1,0 +1,50 @@
+<section class="question {{if this.slideFromRight "question--slide-from-right"}} {{if this.slideFromLeft "question--slide-from-left"}}">
+	<p>{{this.model.headline}} {{if this.model.required '*'}}</p>
+
+  {{#if this.isMultipleChoiceQuestionType}}
+    {{#if this.model.multiple}}
+      {{#each this.choices as |choice|}}
+        <Input
+          id={{choice.value}}
+          @type="checkbox"
+          @checked={{choice.selected}}
+        />
+        <label for={{choice.value}}>{{choice.label}}</label>
+      {{/each}}
+    {{else}}
+      {{#each this.choices as |choice|}}
+        <RadioButton
+          @value={{choice.value}}
+          @groupValue={{this.answer}}
+          @changed={{fn this.selectChoice choice}}
+        >
+          <span>{{choice.label}}</span>
+        </RadioButton>
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{#if this.isTextQuestionType}}
+    {{#if this.model.multiline}}
+      <Textarea />
+    {{else}}
+      <Input
+        id={{this.model.id}}
+        @type="text"
+      />
+    {{/if}}
+  {{/if}}
+
+	<div class="bottom-navigation">
+		{{#if this.isNotFirstQuestion}}
+			<button type="button" {{on "click" this.previousQuestion}}>Previous</button>
+		{{/if}}
+		<button class="question__next {{if this.mandatoryAndNoAnswer "question__next--disabled"}}" type="button" {{on "click" this.nextQuestion}}>
+			Next
+		</button>
+
+    {{#if this.error}}
+      <p>{{this.error}}</p>
+    {{/if}}
+	</div>
+</section>

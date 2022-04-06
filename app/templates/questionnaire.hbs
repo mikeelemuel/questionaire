@@ -1,0 +1,11 @@
+<section class="about">
+	<h2>{{this.model.name}}</h2>
+	<p>{{this.model.description}}</p>
+	<p>{{this.model.numberOfQuestions}} questions</p>
+
+	<div class="bottom-navigation">
+    <button type="button" {{on "click" this.backToQuestionnaires}}>Back</button>
+    <button type="button" {{on "click"  (fn this.startQuestionnaire this.model)}}>Start</button>
+	</div>
+
+</section>
