@@ -2,7 +2,7 @@ import Service, { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-export default class ShoppingCartService extends Service {
+export default class QuestionnaireHelperService extends Service {
   @tracked questionnaireId = null;
   @tracked currentQuestionIndex = null;
   @tracked questions = null;
