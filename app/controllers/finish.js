@@ -11,7 +11,7 @@ export default class FinishController extends Controller {
     const lastQuestionId = this.questionnaireHelper.getLastQuestionId();
 
     if (lastQuestionId) {
-      this.router.transitionToRoute('question', lastQuestionId);
+      this.router.transitionTo('question', lastQuestionId);
     }
   }
 }
