@@ -36,11 +36,11 @@ export default class QuestionController extends Controller {
   nextQuestion() {
     let isQuestionAnswered;
     let nextQuestionId;
+    const isRequired = this.model.required;
 
     if (this.isMultipleChoiceQuestionType) {
       isQuestionAnswered = this.model.choices.isAny('selected', true);
     }
-    const isRequired = this.model.required;
 
     if (isRequired && !isQuestionAnswered) {
       return (this.error = 'You must answer!');
